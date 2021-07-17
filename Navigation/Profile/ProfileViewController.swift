@@ -5,20 +5,15 @@ class ProfileViewController: UIViewController {
     
     private lazy var mainTable: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
-        table.backgroundColor = .magenta
         table.translatesAutoresizingMaskIntoConstraints = false
         table.dataSource = self
         table.delegate = self
-        table.register(ProfileHeaderView.self, forHeaderFooterViewReuseIdentifier: "header")
-        table.register(PostTableViewCell.self, forCellReuseIdentifier: "cellID")
+        table.register(ProfileTableHeaderView.self, forHeaderFooterViewReuseIdentifier: String(describing: ProfileTableHeaderView.self))
+        table.register(PostTableViewCell.self, forCellReuseIdentifier: String(describing: PostTableViewCell.self))
         return table
     }()
     
-    
-    let tableHeaderView = ProfileHeaderView()
-    
         override func viewDidLoad() {
-
         super.viewDidLoad()
         
         view.addSubview(mainTable)
@@ -31,9 +26,6 @@ class ProfileViewController: UIViewController {
     }
 }
 
-
-
-
 extension ProfileViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -43,28 +35,24 @@ extension ProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return feed.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: PostTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath) as! PostTableViewCell
-        
+        let cell: PostTableViewCell = tableView.dequeueReusableCell(withIdentifier: String(describing: PostTableViewCell.self), for: indexPath) as! PostTableViewCell
         cell.post = feed[indexPath.row]
-//        cell.textLabel?.text = feed[indexPath.row].author
-//        cell.imageView?.image = feed[indexPath.row].image
-//        cell.backgroundColor = .systemPurple
-        
-        
         return cell
     }
     
-    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let a = ProfileHeaderView()
+        let a = tableView.dequeueReusableHeaderFooterView(withIdentifier: String(describing: ProfileTableHeaderView.self)) as! ProfileTableHeaderView
+        if section != 0 {return nil}
+        
         return a
     }
-    
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        218
+    }
 }
 
-
-
 extension ProfileViewController: UITableViewDelegate {
-
 }

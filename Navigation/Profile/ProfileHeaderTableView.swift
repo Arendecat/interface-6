@@ -1,23 +1,25 @@
 //хедер
-
 import UIKit
 
-
-
-
-
-
 class ProfileHeaderView: UIView {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupSubviews()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     
     let fullNameLabel: UILabel = {
         let name = UILabel()
-            name.text = "Queen Elsa"
-            name.font = .boldSystemFont(ofSize: 18)
-            name.textColor = .black
-            name.translatesAutoresizingMaskIntoConstraints = false
+        name.text = "Queen Elsa"
+        name.font = .boldSystemFont(ofSize: 18)
+        name.textColor = .black
+        name.translatesAutoresizingMaskIntoConstraints = false
         return name
     }()
-    
     
     let avatarImageView: UIView = {
         let avaImage = UIImage.init(named: "ava")
@@ -31,7 +33,6 @@ class ProfileHeaderView: UIView {
         ava.translatesAutoresizingMaskIntoConstraints = false
         return ava
     }()
-        
         
     let statusLabel: UILabel = {
         let status = UILabel()
@@ -57,22 +58,57 @@ class ProfileHeaderView: UIView {
         return statusB
     }()
     
+    private func setupSubviews() {
+        self.addSubviews(fullNameLabel,avatarImageView,statusLabel,statusButton)
+        
+        NSLayoutConstraint.activate([
+            avatarImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
+            avatarImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16),
+            avatarImageView.heightAnchor.constraint(equalToConstant: 120),
+            avatarImageView.widthAnchor.constraint(equalTo: avatarImageView.heightAnchor),
+            
+            fullNameLabel.topAnchor.constraint(equalTo: self.topAnchor,constant: 27),
+            fullNameLabel.leftAnchor.constraint(equalTo: avatarImageView.rightAnchor,constant: 16),
+            fullNameLabel.rightAnchor.constraint(equalTo: self.rightAnchor),
+            fullNameLabel.heightAnchor.constraint(equalToConstant: 18),
+            
+            statusButton.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16),
+            statusButton.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 16),
+            statusButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -16),
+            statusButton.heightAnchor.constraint(equalToConstant: 50),
+            statusButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16),
+            
+            statusLabel.leftAnchor.constraint(equalTo: avatarImageView.rightAnchor, constant: 16),
+            statusLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -16),
+            statusLabel.bottomAnchor.constraint(equalTo: statusButton.topAnchor, constant: -34),
+            statusLabel.heightAnchor.constraint(equalTo: fullNameLabel.heightAnchor)
+            ])
+        }
+}
+
+
+class ProfileTableHeaderView: UITableViewHeaderFooterView {
     
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
+        setupSubviews()
+    }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
-    
+    private let view = ProfileHeaderView()
     
     private func setupSubviews() {
-        contentView.addSubviews(fullNameLabel,avatarImageView,statusLabel,statusButton)
-        let constraints = [
-            fullNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor)
-            ]
+        view.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubviews(view)
         
-        
-        
-        NSLayoutConstraint.activate(constraints)
-            
-        
-        
+        NSLayoutConstraint.activate([
+            view.topAnchor.constraint(equalTo: contentView.topAnchor),
+            view.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+            view.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+            view.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        ])
     }
 }
