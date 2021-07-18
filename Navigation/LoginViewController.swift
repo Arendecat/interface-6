@@ -20,9 +20,9 @@ class LoginViewController: UIViewController {
     
     
 
-//    @objc func loginSuccessful() {
-//        navigationController?.pushViewController(ProfileViewController(), animated: true)
-//    }
+    @objc func loginSuccessful() {
+        navigationController?.pushViewController(ProfileViewController(), animated: true)
+    }
     
 // UI elements declaration
     
@@ -59,7 +59,7 @@ class LoginViewController: UIViewController {
         lButton.layer.cornerRadius = 10
         lButton.layer.masksToBounds = true
         lButton.translatesAutoresizingMaskIntoConstraints = false
-    //    lButton.addTarget(self, action: #selector(loginSuccessful), for: .touchUpInside)
+        lButton.addTarget(self, action: #selector(loginSuccessful), for: .touchUpInside)
         return lButton
     }()
  

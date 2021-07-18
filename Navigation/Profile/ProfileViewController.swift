@@ -14,14 +14,14 @@ class ProfileViewController: UIViewController {
     }()
     
         override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        view.addSubview(mainTable)
-        NSLayoutConstraint.activate([
-            mainTable.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
-            mainTable.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
-            mainTable.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            mainTable.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            super.viewDidLoad()
+            
+            view.addSubview(mainTable)
+            NSLayoutConstraint.activate([
+                mainTable.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+                mainTable.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
+                mainTable.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+                mainTable.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
 }
