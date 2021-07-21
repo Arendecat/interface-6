@@ -9,23 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Profile-->
-        <scene sceneID="bRX-aC-Cpi">
-            <objects>
-                <viewController id="Ca1-kw-dKJ" customClass="ProfileViewController" customModule="Navigation" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="z6I-Co-0n3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="FCL-IZ-fe8"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="gJS-0q-aWI"/>
-                    <navigationItem key="navigationItem" title="Profile" id="TPi-FS-zh0"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZwS-K6-ZGq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1767" y="197"/>
-        </scene>
         <!--Feed-->
         <scene sceneID="pR1-4r-6ob">
             <objects>
@@ -142,11 +125,11 @@
             </objects>
             <point key="canvasLocation" x="-1059" y="-128"/>
         </scene>
-        <!--Login-->
+        <!--Profile-->
         <scene sceneID="NxV-Wk-gIN">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lWj-Ic-cCh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Login" image="person.fill" catalog="system" id="SyK-iK-f7q"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person.fill" catalog="system" id="SyK-iK-f7q"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="BL9-RU-Cgn"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hZv-O1-ero">
@@ -162,27 +145,54 @@
             </objects>
             <point key="canvasLocation" x="-350" y="557"/>
         </scene>
-        <!--Profile-->
+        <!--Login View Controller-->
         <scene sceneID="5d9-KT-p7d">
             <objects>
                 <viewController id="yVT-Nt-D9M" customClass="LoginViewController" customModule="Navigation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nTY-Oy-cXI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PZP-j0-Xmt">
+                                <rect key="frame" x="164" y="373" width="46" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="zOA-c1-aF8" kind="show" id="H4l-M0-M92"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="wg1-wL-Z68"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="figure.wave" catalog="system" id="pAT-ag-xr7"/>
                     <navigationItem key="navigationItem" id="QyU-79-FEr"/>
+                    <connections>
+                        <outlet property="loginButton" destination="PZP-j0-Xmt" id="qSi-hw-cMi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OnC-il-db5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="655" y="556"/>
+            <point key="canvasLocation" x="653.60000000000002" y="555.66502463054189"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="sYr-FB-Eri">
+            <objects>
+                <viewController id="zOA-c1-aF8" customClass="ProfileViewController" customModule="Navigation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NjB-Hv-S4J">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="2Ex-Vm-9oI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="kcU-44-2RF"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1CN-7R-nd0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1441" y="556"/>
         </scene>
     </scenes>
     <color key="tintColor" name="Color"/>
     <resources>
-        <image name="figure.wave" catalog="system" width="81" height="128"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <namedColor name="Color">

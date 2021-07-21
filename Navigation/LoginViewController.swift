@@ -50,18 +50,21 @@ class LoginViewController: UIViewController {
         return lBar
     }()
     
-    let loginButton: UIButton = {
+    @IBOutlet weak var loginButton: UIButton!
+    
+    
+    
+
         let bluePixel = UIImage.init(named: "blue_pixel")
-        let lButton = UIButton()
-        lButton.setBackgroundImage(bluePixel, for: .normal)
-        lButton.setTitle("Log in", for: .normal)
-        lButton.setTitleColor(.white, for: .normal)
-        lButton.layer.cornerRadius = 10
-        lButton.layer.masksToBounds = true
-        lButton.translatesAutoresizingMaskIntoConstraints = false
-        lButton.addTarget(self, action: #selector(loginSuccessful), for: .touchUpInside)
-        return lButton
-    }()
+
+//        loginButton.setBackgroundImage(bluePixel, for: .normal)
+//        loginButton.setTitle("Log in", for: .normal)
+//        loginButton.setTitleColor(.white, for: .normal)
+//        loginButton.layer.cornerRadius = 10
+//        loginButton.layer.masksToBounds = true
+//        loginButton.translatesAutoresizingMaskIntoConstraints = false
+//        .addTarget(self, action: #selector(loginSuccessful), for: .touchUpInside)
+
  
     
     
@@ -141,7 +144,12 @@ class LoginViewController: UIViewController {
         mainView.translatesAutoresizingMaskIntoConstraints = false
         mainView.addSubview(supView)
 
-        
+        loginButton.setBackgroundImage(bluePixel, for: .normal)
+        loginButton.setTitle("Log in", for: .normal)
+        loginButton.setTitleColor(.white, for: .normal)
+        loginButton.layer.cornerRadius = 10
+        loginButton.layer.masksToBounds = true
+        loginButton.translatesAutoresizingMaskIntoConstraints = false
         
         supView.addSubview(logoView)
         supView.addSubview(loginBar)
